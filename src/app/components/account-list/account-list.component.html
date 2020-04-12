@@ -1,0 +1,31 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">CPF</th>
+          <th scope="col">Balance</th>
+          <th scope="col">Daily Withdrawal Limit</th>
+          <th scope="col">Active</th>
+          <th scope="col">Type</th>
+          <th scope="col">Date Creation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr [routerLink]="['/editAccount']" routerLinkActive="router-link-active"  *ngFor="let account of accounts" data-toggle="modal" data-target="#editAccount">
+          <td>{{ account.idAccount }}</td>
+          <td>{{ account.person.name }}</td>
+          <td>{{ account.person.cpf }}</td>
+          <td>{{ account.balance }}</td>
+          <td>{{ account.dailyWithdrawalLimit }}</td>
+          <td>{{ account.activeAccount }}</td>
+          <td>{{ account.accountType }}</td>
+          <td>{{ account.creationDate | date:'medium'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-account-edit-component id="editAccount"></app-account-edit-component>
